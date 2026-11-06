@@ -23,6 +23,5 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: wasm32-unknown-unknown
-      - run: cargo install cargo-near --locked
-      - run: cargo near build
+      - run: cargo build --target wasm32-unknown-unknown --release
         working-directory: contract
