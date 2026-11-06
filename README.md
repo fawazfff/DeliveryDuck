@@ -42,3 +42,7 @@ The Duckling's Corner stall is a functioning player-owned market in the playable
 The Rust contract uses the NEAR SDK Contract Tools MultiToken implementation rather than a hand-written partial interface. It exposes NEP-245 core multi-token methods, metadata, transfer and batch-transfer support through the derive implementation, and standard event handling. The game owner can mint and burn the four item types. Build with cargo-near from contract/ after installing Rust and cargo-near. Deploy only after configuring a funded NEAR Testnet deployer account. The app's RPC inspector reads mt_batch_balance_of from the deployed contract. Contract deployment and a live account are still required before on-chain balances can appear.
 
 NEAR's published NEP-245 specification: https://github.com/near/NEPs/blob/master/neps/nep-0245.md. Contract implementation: https://github.com/near/near-sdk-contract-tools.
+
+
+## Optional NEAR wallet connection
+The interface uses HOT Labs' NEAR Connect (`@hot-labs/near-connect`) to let a player explicitly connect a supported NEAR Testnet wallet. The connection is optional and never interrupts normal offline gameplay. Once connected, the account ID is used by the read-only Testnet ledger inspector. Google/social sign-in is not enabled by this connector alone; HOT Kit's Google flow is a separate provider integration and requires an API key and service configuration. No email or social-auth provider credentials are included in this repository.
